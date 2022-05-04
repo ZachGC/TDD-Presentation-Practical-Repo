@@ -7,53 +7,21 @@ namespace Unit_Tests
 {
     public class PandaFactoryTests
     {
-        [Fact]
-        public void GivenAPandaFactory_WhenCreatingAPandaOfType0_ThenVerifyAKillerWhaleIsReturned()
+
+        [Theory]
+        [InlineData(0, "🐼 + 🐬 = 🔪🐳", "a panda dolphin is an orca")]
+        [InlineData(1, "🐼 + 📖 = 📰", "a panda book is a newspaper")]
+        [InlineData(2, "🐼 + 🐼 = 🐼", "a panda panda is a panda")]
+        [InlineData(3, "🐼 + 🐼 + 🐼 + 🐼 = Broads in Atlanta", "a panda panda panda panda is a sick beat drop")]
+        public void GivenAPandaFactory_WhenCreatingAPandaOfType_ThenVerifyTheExpectedResultIsReturned(int type, string expected, string reason)
         {
             //Arrange - your items to test
             var pf = new PandaFactory();
-            const int pandaType = 0;
 
             //Act - perform your test action
-            var killerWhale = pf.CreatePanda(pandaType);
+            var pandapanda = pf.CreatePanda(type);
 
-            killerWhale.Should().Be("🐼 + 🐬 = 🔪🐳", "a panda dolphin is an orca");
-        }
-        [Fact]
-        public void GivenAPandaFactory_WhenCreatingAPandaOfType1_ThenVerifyANewspaperIsReturned()
-        {
-            //Arrange - your items to test
-            var pf = new PandaFactory();
-            const int pandaType = 1;
-
-            //Act - perform your test action
-            var newspaper = pf.CreatePanda(pandaType);
-
-            newspaper.Should().Be("🐼 + 📖 = 📰", "a panda book is a newspaper");
-        }
-        [Fact]
-        public void GivenAPandaFactory_WhenCreatingAPandaOfType2_ThenVerifyAPandaIsReturned()
-        {
-            //Arrange - your items to test
-            var pf = new PandaFactory();
-            const int pandaType = 2;
-
-            //Act - perform your test action
-            var panda = pf.CreatePanda(pandaType);
-
-            panda.Should().Be("🐼 + 🐼 = 🐼", "a panda panda is a panda");
-        }
-        [Fact]
-        public void GivenAPandaFactory_WhenCreatingAPandaOfType3_ThenVerifyASickBeatDropIsReturned()
-        {
-            //Arrange - your items to test
-            var pf = new PandaFactory();
-            const int pandaType = 3;
-
-            //Act - perform your test action
-            var pandapanda = pf.CreatePanda(pandaType);
-
-            pandapanda.Should().Be("🐼 + 🐼 + 🐼 + 🐼 = Broads in Atlanta", "a panda panda panda panda is a sick beat drop");
+            pandapanda.Should().Be(expected, reason);
         }
 
         [Fact]
@@ -68,5 +36,7 @@ namespace Unit_Tests
 
             throwError.Should().Throw<InvalidOperationException>("because I couldn't think of more panda types");
         }
+
+
     }
 }
