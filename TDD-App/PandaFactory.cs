@@ -26,8 +26,8 @@ namespace TDD_App
                 case 1: return "🐼 + 📖 = 📰";
                 case 2: return "🐼 + 🐼 = 🐼";
                 case 3: return "🐼 + 🐼 + 🐼 + 🐼 = Broads in Atlanta";
+                default: throw new InvalidOperationException();
             }
-            return String.Empty;
         }
     }
 }
