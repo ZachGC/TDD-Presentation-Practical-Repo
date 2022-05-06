@@ -17,6 +17,7 @@ namespace Unit_Tests
             //Act - perform your test action
             var killerWhale = pf.CreatePanda(pandaType);
 
+            //Assert - test that your output is what it should be
             killerWhale.Should().Be("🐼 + 🐬 = 🔪🐳", "a panda dolphin is an orca");
         }
         [Fact]
@@ -29,6 +30,7 @@ namespace Unit_Tests
             //Act - perform your test action
             var newspaper = pf.CreatePanda(pandaType);
 
+            //Assert - test that your output is what it should be
             newspaper.Should().Be("🐼 + 📖 = 📰", "a panda book is a newspaper");
         }
         [Fact]
@@ -41,6 +43,7 @@ namespace Unit_Tests
             //Act - perform your test action
             var panda = pf.CreatePanda(pandaType);
 
+            //Assert - test that your output is what it should be
             panda.Should().Be("🐼 + 🐼 = 🐼", "a panda panda is a panda");
         }
         [Fact]
@@ -53,6 +56,7 @@ namespace Unit_Tests
             //Act - perform your test action
             var pandapanda = pf.CreatePanda(pandaType);
 
+            //Assert - test that your output is what it should be
             pandapanda.Should().Be("🐼 + 🐼 + 🐼 + 🐼 = Broads in Atlanta", "a panda panda panda panda is a sick beat drop");
         }
 
@@ -66,6 +70,7 @@ namespace Unit_Tests
             //Act - perform your test action
             Action throwError = () => pf.CreatePanda(pandaType);
 
+            //Assert - test that your output is what it should be
             throwError.Should().Throw<InvalidOperationException>("because I couldn't think of more panda types");
         }
     }
